@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
   <title>Thangaraja Salon | Skip the Queue. Book Your Time. Get Your Cut.</title>
   <meta name="description" content="Online appointment and time-slot booking system for Thangaraja Salon. Skip the queue, pick your treatment, reserve your slot from 8:00 AM to 10:00 PM.">
 
@@ -19,7 +19,7 @@
       --bg-dark: #090d16;
       --bg-surface: #111827;
       --bg-surface-elevated: #1a2234;
-      --bg-surface-glass: rgba(17, 24, 39, 0.85);
+      --bg-surface-glass: rgba(17, 24, 39, 0.92);
       --bg-card: #151d2d;
       --bg-card-hover: #1e293b;
       
@@ -71,6 +71,9 @@
       font-size: 16px;
       background-color: var(--bg-dark);
       color: var(--text-primary);
+      width: 100%;
+      max-width: 100vw;
+      overflow-x: hidden;
     }
 
     body {
@@ -78,7 +81,10 @@
       line-height: 1.6;
       background-color: var(--bg-dark);
       color: var(--text-primary);
+      width: 100%;
+      max-width: 100vw;
       overflow-x: hidden;
+      position: relative;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -97,6 +103,7 @@
       max-width: 1240px;
       margin: 0 auto;
       padding: 0 1.5rem;
+      box-sizing: border-box;
     }
 
     /* ==========================================================================
@@ -113,6 +120,7 @@
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
+      flex-wrap: wrap;
     }
 
     .navbar {
@@ -124,6 +132,7 @@
       -webkit-backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border-subtle);
       transition: var(--transition-smooth);
+      width: 100%;
     }
 
     .nav-inner {
@@ -131,12 +140,15 @@
       align-items: center;
       justify-content: space-between;
       height: 80px;
+      gap: 1rem;
+      width: 100%;
     }
 
     .brand-logo {
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      flex-shrink: 0;
     }
 
     .logo-icon-wrap {
@@ -149,6 +161,7 @@
       justify-content: center;
       box-shadow: var(--shadow-gold);
       color: #000;
+      flex-shrink: 0;
     }
 
     .logo-text {
@@ -164,6 +177,7 @@
       color: var(--text-primary);
       text-transform: uppercase;
       line-height: 1.1;
+      white-space: nowrap;
     }
 
     .logo-subtitle {
@@ -172,6 +186,7 @@
       letter-spacing: 3px;
       color: var(--text-gold);
       text-transform: uppercase;
+      white-space: nowrap;
     }
 
     .nav-links {
@@ -212,6 +227,11 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      flex-shrink: 0;
+    }
+
+    .nav-actions .btn-text-mobile {
+      display: none;
     }
 
     /* ==========================================================================
@@ -231,6 +251,8 @@
       border: 1px solid transparent;
       text-align: center;
       line-height: 1.2;
+      box-sizing: border-box;
+      touch-action: manipulation;
     }
 
     .btn-primary {
@@ -297,6 +319,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 1px;
+      box-sizing: border-box;
     }
 
     .badge-gold {
@@ -367,6 +390,7 @@
       line-height: 1.15;
       color: #ffffff;
       letter-spacing: 0.5px;
+      word-break: break-word;
     }
 
     .hero-heading span {
@@ -518,6 +542,7 @@
       color: var(--text-primary);
       margin: 0.75rem 0 1rem;
       line-height: 1.25;
+      word-break: break-word;
     }
 
     .section-subtitle {
@@ -595,6 +620,7 @@
       border-top: 1px solid var(--border-subtle);
       border-bottom: 1px solid var(--border-subtle);
       position: relative;
+      width: 100%;
     }
 
     .booking-app-wrapper {
@@ -603,6 +629,8 @@
       border-radius: var(--radius-lg);
       box-shadow: var(--shadow-lg);
       overflow: hidden;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .booking-stepper {
@@ -610,11 +638,19 @@
       background: var(--bg-card);
       border-bottom: 1px solid var(--border-subtle);
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      width: 100%;
+      max-width: 100%;
+    }
+
+    .booking-stepper::-webkit-scrollbar {
+      display: none;
     }
 
     .stepper-tab {
-      flex: 1;
-      min-width: 170px;
+      flex: 1 0 auto;
+      min-width: 140px;
       padding: 1.25rem 1rem;
       display: flex;
       align-items: center;
@@ -628,6 +664,8 @@
       border-bottom: 3px solid transparent;
       transition: var(--transition-smooth);
       text-align: left;
+      white-space: nowrap;
+      box-sizing: border-box;
     }
 
     .stepper-tab.active {
@@ -667,11 +705,15 @@
       display: grid;
       grid-template-columns: 1.45fr 0.95fr;
       gap: 0;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .booking-main-panel {
       padding: 2.5rem;
       border-right: 1px solid var(--border-subtle);
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .booking-summary-sidebar {
@@ -680,10 +722,14 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .step-view {
       display: none;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .step-view.active {
@@ -698,6 +744,7 @@
 
     .panel-header {
       margin-bottom: 2rem;
+      width: 100%;
     }
 
     .panel-title {
@@ -706,33 +753,40 @@
       font-weight: 700;
       color: var(--text-primary);
       margin-bottom: 0.4rem;
+      word-break: break-word;
     }
 
     .panel-desc {
       font-size: 0.95rem;
       color: var(--text-secondary);
+      word-break: break-word;
     }
 
     /* ==========================================================================
-       TREATMENT CARDS (EXACT 3 ONLY)
+       TREATMENT CARDS (EXACT 3 ONLY - FULLY RESPONSIVE)
        ========================================================================== */
     .treatments-grid {
       display: flex;
       flex-direction: column;
       gap: 1.25rem;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .treatment-card {
       background: var(--bg-surface-elevated);
       border: 2px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      padding: 1.5rem;
+      padding: 1.25rem 1.5rem;
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 1rem;
       cursor: pointer;
       transition: var(--transition-smooth);
       position: relative;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .treatment-card:hover {
@@ -751,11 +805,13 @@
       display: flex;
       align-items: center;
       gap: 1.25rem;
+      min-width: 0;
+      flex: 1;
     }
 
     .treatment-icon {
-      width: 50px;
-      height: 50px;
+      width: 48px;
+      height: 48px;
       border-radius: 12px;
       background: rgba(245, 158, 11, 0.15);
       color: var(--accent-gold-light);
@@ -774,12 +830,23 @@
       font-size: 1.15rem;
       font-weight: 700;
       color: var(--text-primary);
-      margin-bottom: 0.25rem;
+      margin-bottom: 0.2rem;
+      line-height: 1.25;
+      word-break: break-word;
     }
 
     .treatment-meta {
       font-size: 0.85rem;
       color: var(--text-secondary);
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .treatment-right {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-shrink: 0;
     }
 
     .treatment-price-wrap {
@@ -787,10 +854,11 @@
     }
 
     .treatment-price {
-      font-size: 1.5rem;
+      font-size: 1.45rem;
       font-weight: 800;
       color: var(--accent-gold-light);
       font-family: var(--font-heading);
+      white-space: nowrap;
     }
 
     .select-radio {
@@ -798,11 +866,11 @@
       height: 22px;
       border-radius: 50%;
       border: 2px solid var(--border-subtle);
-      margin-left: 1rem;
       display: flex;
       align-items: center;
       justify-content: center;
       transition: var(--transition-smooth);
+      flex-shrink: 0;
     }
 
     .treatment-card.selected .select-radio {
@@ -827,18 +895,26 @@
        ========================================================================== */
     .date-selection-box {
       margin-bottom: 2rem;
+      width: 100%;
     }
 
     .date-tabs-row {
       display: flex;
       gap: 0.75rem;
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
       padding-bottom: 0.5rem;
       margin-top: 0.75rem;
+      width: 100%;
+    }
+
+    .date-tabs-row::-webkit-scrollbar {
+      display: none;
     }
 
     .date-pill {
-      flex: 0 0 100px;
+      flex: 0 0 95px;
       background: var(--bg-surface-elevated);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
@@ -846,6 +922,8 @@
       text-align: center;
       cursor: pointer;
       transition: var(--transition-smooth);
+      box-sizing: border-box;
+      touch-action: manipulation;
     }
 
     .date-pill:hover:not(.disabled) {
@@ -895,6 +973,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      flex-wrap: wrap;
     }
 
     .input-date {
@@ -906,6 +985,7 @@
       font-size: 0.9rem;
       color-scheme: dark;
       outline: none;
+      max-width: 100%;
     }
 
     .input-date:focus {
@@ -922,6 +1002,8 @@
       background: var(--bg-surface-elevated);
       border-radius: var(--radius-sm);
       font-size: 0.8rem;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .legend-item {
@@ -935,6 +1017,7 @@
       width: 12px;
       height: 12px;
       border-radius: 4px;
+      flex-shrink: 0;
     }
 
     .legend-available { background: var(--bg-card); border: 1px solid var(--border-subtle); }
@@ -950,6 +1033,8 @@
       max-height: 380px;
       overflow-y: auto;
       padding-right: 0.35rem;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .time-slot-btn {
@@ -967,6 +1052,8 @@
       flex-direction: column;
       align-items: center;
       gap: 0.2rem;
+      box-sizing: border-box;
+      touch-action: manipulation;
     }
 
     .time-slot-btn:hover:not(:disabled) {
@@ -1010,6 +1097,7 @@
        ========================================================================== */
     .form-group {
       margin-bottom: 1.5rem;
+      width: 100%;
     }
 
     .form-label {
@@ -1030,6 +1118,7 @@
       font-size: 0.95rem;
       outline: none;
       transition: var(--transition-smooth);
+      box-sizing: border-box;
     }
 
     .form-control:focus {
@@ -1051,6 +1140,8 @@
       flex-direction: column;
       gap: 1.25rem;
       margin-bottom: 2rem;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .payment-option-card {
@@ -1063,6 +1154,8 @@
       display: flex;
       align-items: flex-start;
       gap: 1.25rem;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .payment-option-card:hover {
@@ -1134,6 +1227,7 @@
       justify-content: space-between;
       align-items: flex-start;
       font-size: 0.9rem;
+      gap: 0.5rem;
     }
 
     .summary-label {
@@ -1146,6 +1240,7 @@
       font-weight: 600;
       text-align: right;
       max-width: 60%;
+      word-break: break-word;
     }
 
     .summary-total-box {
@@ -1196,6 +1291,8 @@
       max-width: 860px;
       margin: 0 auto;
       position: relative;
+      box-sizing: border-box;
+      width: 100%;
     }
 
     .confirmation-hero {
@@ -1229,6 +1326,8 @@
       font-weight: 700;
       color: var(--accent-gold-light);
       margin-top: 1rem;
+      max-width: 100%;
+      word-break: break-all;
     }
 
     /* Status Progression Track */
@@ -1238,6 +1337,8 @@
       border-radius: var(--radius-md);
       padding: 2rem 1.5rem;
       margin: 2rem 0;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .status-track-title {
@@ -1254,6 +1355,7 @@
       display: flex;
       justify-content: space-between;
       position: relative;
+      width: 100%;
     }
 
     .status-steps-row::before {
@@ -1335,12 +1437,15 @@
       justify-content: space-between;
       gap: 1.5rem;
       margin-top: 2rem;
+      box-sizing: border-box;
+      width: 100%;
     }
 
     .whatsapp-info {
       display: flex;
       align-items: center;
       gap: 1rem;
+      min-width: 0;
     }
 
     .whatsapp-icon-wrap {
@@ -1373,6 +1478,7 @@
       color: #000;
       font-weight: 700;
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .btn-whatsapp:hover {
@@ -1392,12 +1498,15 @@
       max-width: 650px;
       margin: 3rem auto 0;
       text-align: center;
+      box-sizing: border-box;
+      width: 100%;
     }
 
     .lookup-input-group {
       display: flex;
       gap: 0.75rem;
       margin-top: 1.5rem;
+      width: 100%;
     }
 
     /* ==========================================================================
@@ -1439,6 +1548,7 @@
       background: #060910;
       border-top: 1px solid var(--border-subtle);
       padding: 4.5rem 0 2.5rem;
+      width: 100%;
     }
 
     .footer-grid {
@@ -1492,6 +1602,7 @@
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
+      max-width: 90vw;
     }
 
     .toast {
@@ -1517,7 +1628,7 @@
     }
 
     /* ==========================================================================
-       RESPONSIVE BREAKPOINTS
+       RESPONSIVE BREAKPOINTS (PRECISION MOBILE & TABLET STYLING)
        ========================================================================== */
     @media (max-width: 1024px) {
       .hero-grid {
@@ -1530,6 +1641,10 @@
       .booking-main-panel {
         border-right: none;
         border-bottom: 1px solid var(--border-subtle);
+        padding: 2rem 1.5rem;
+      }
+      .booking-summary-sidebar {
+        padding: 2rem 1.5rem;
       }
       .steps-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1543,41 +1658,343 @@
     }
 
     @media (max-width: 768px) {
+      .container {
+        padding: 0 1rem;
+      }
+
+      .top-announcement {
+        font-size: 0.76rem;
+        padding: 0.4rem 0.5rem;
+        line-height: 1.35;
+      }
+
+      .navbar {
+        background: rgba(17, 24, 39, 0.96);
+      }
+
+      .nav-inner {
+        height: 66px;
+        gap: 0.5rem;
+      }
+
+      .logo-icon-wrap {
+        width: 38px;
+        height: 38px;
+        border-radius: 10px;
+      }
+
+      .logo-title {
+        font-size: 1.15rem;
+        letter-spacing: 1px;
+      }
+
+      .logo-subtitle {
+        font-size: 0.58rem;
+        letter-spacing: 2px;
+      }
+
       .nav-links {
         display: none;
       }
+
+      .nav-actions .btn {
+        padding: 0.55rem 1rem;
+        font-size: 0.82rem;
+        gap: 0.4rem;
+      }
+
+      .hero-section {
+        padding: 3rem 0 3.5rem;
+      }
+
       .hero-heading {
-        font-size: 2.4rem;
+        font-size: 2.3rem;
+        line-height: 1.2;
       }
-      .hero-stats-row {
-        grid-template-columns: 1fr;
-        gap: 1rem;
+
+      .hero-description {
+        font-size: 1rem;
+        line-height: 1.6;
       }
-      .steps-grid {
-        grid-template-columns: 1fr;
-      }
-      .features-grid {
-        grid-template-columns: 1fr;
-      }
-      .footer-grid {
-        grid-template-columns: 1fr;
-      }
-      .booking-main-panel,
-      .booking-summary-sidebar {
-        padding: 1.5rem;
-      }
-      .whatsapp-notification-card {
+
+      .hero-cta-group {
         flex-direction: column;
-        align-items: flex-start;
-      }
-      .btn-whatsapp {
         width: 100%;
+        gap: 0.85rem;
+      }
+
+      .hero-cta-group .btn {
+        width: 100%;
+      }
+
+      .hero-stats-row {
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.75rem;
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
         text-align: center;
       }
+
+      .stat-number {
+        font-size: 1.35rem;
+      }
+
+      .stat-label {
+        font-size: 0.72rem;
+      }
+
+      .section-padding {
+        padding: 3.5rem 0;
+      }
+
+      .section-header {
+        margin-bottom: 2.25rem;
+      }
+
+      .section-title {
+        font-size: 1.85rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.95rem;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1.25rem;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .booking-main-panel {
+        padding: 1.5rem 1rem;
+      }
+
+      .booking-summary-sidebar {
+        padding: 1.5rem 1rem;
+      }
+
+      .stepper-tab {
+        min-width: 120px;
+        padding: 0.85rem 0.65rem;
+        font-size: 0.8rem;
+        gap: 0.4rem;
+      }
+
+      .step-number {
+        width: 24px;
+        height: 24px;
+        font-size: 0.72rem;
+      }
+
+      .panel-title {
+        font-size: 1.35rem;
+      }
+
+      .panel-desc {
+        font-size: 0.88rem;
+      }
+
+      .treatment-card {
+        padding: 1rem 0.85rem;
+        gap: 0.6rem;
+      }
+
+      .treatment-info {
+        gap: 0.75rem;
+      }
+
+      .treatment-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+      }
+
+      .treatment-icon svg {
+        width: 20px;
+        height: 20px;
+      }
+
+      .treatment-name {
+        font-size: 1rem;
+      }
+
+      .treatment-meta {
+        font-size: 0.78rem;
+      }
+
+      .treatment-price {
+        font-size: 1.25rem;
+      }
+
+      .treatment-right {
+        gap: 0.6rem;
+      }
+
+      .select-radio {
+        width: 18px;
+        height: 18px;
+      }
+
+      .date-pill {
+        flex: 0 0 78px;
+        padding: 0.65rem 0.35rem;
+      }
+
+      .date-weekday {
+        font-size: 0.68rem;
+      }
+
+      .date-day {
+        font-size: 1.2rem;
+      }
+
+      .date-month {
+        font-size: 0.68rem;
+      }
+
+      .slots-grid {
+        grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+        gap: 0.5rem;
+      }
+
+      .time-slot-btn {
+        padding: 0.65rem 0.35rem;
+        font-size: 0.82rem;
+      }
+
+      .status-progression-box {
+        padding: 1.5rem 0.75rem;
+      }
+
+      .status-steps-row::before {
+        top: 16px;
+      }
+
+      .status-step-node {
+        width: 32px;
+        height: 32px;
+        font-size: 0.75rem;
+      }
+
+      .status-step-label {
+        font-size: 0.72rem;
+      }
+
+      .whatsapp-notification-card {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1.25rem 1rem;
+        gap: 1rem;
+      }
+
+      .btn-whatsapp {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .lookup-input-group {
+        flex-direction: column;
+      }
+
+      .lookup-input-group .btn {
+        width: 100%;
+      }
+
       .footer-bottom {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
+      }
+
+      .toast-container {
+        bottom: 1rem;
+        right: 1rem;
+        left: 1rem;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .container {
+        padding: 0 0.75rem;
+      }
+
+      .nav-inner {
+        height: 60px;
+      }
+
+      .logo-title {
+        font-size: 1rem;
+      }
+
+      .logo-subtitle {
+        font-size: 0.52rem;
+      }
+
+      .nav-actions .btn {
+        padding: 0.45rem 0.75rem;
+        font-size: 0.76rem;
+      }
+
+      .nav-actions .btn-text-full {
+        display: none;
+      }
+
+      .nav-actions .btn-text-mobile {
+        display: inline;
+      }
+
+      .hero-heading {
+        font-size: 1.95rem;
+      }
+
+      .treatment-card {
+        padding: 0.85rem 0.65rem;
+        gap: 0.45rem;
+      }
+
+      .treatment-info {
+        gap: 0.55rem;
+      }
+
+      .treatment-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 8px;
+      }
+
+      .treatment-name {
+        font-size: 0.92rem;
+      }
+
+      .treatment-meta {
+        font-size: 0.72rem;
+      }
+
+      .treatment-price {
+        font-size: 1.15rem;
+      }
+
+      .slots-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 0.4rem;
+      }
+
+      .time-slot-btn {
+        padding: 0.55rem 0.2rem;
+        font-size: 0.76rem;
+      }
+
+      .status-step-label {
+        font-size: 0.65rem;
       }
     }
   </style>
@@ -1587,7 +2004,7 @@
   <!-- Top Announcement Bar -->
   <div class="top-announcement">
     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-    <span>Operating Hours: <strong>8:00 AM – 10:00 PM Daily</strong> • Zero Wait Time with Prior Online Booking</span>
+    <span>Operating Hours: <strong>8:00 AM – 10:00 PM Daily</strong> • Zero Wait Time with Online Booking</span>
   </div>
 
   <!-- Header / Navigation -->
@@ -1596,7 +2013,7 @@
       <div class="nav-inner">
         <a href="#home" class="brand-logo">
           <div class="logo-icon-wrap">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="6" cy="6" r="3"></circle>
               <circle cx="6" cy="18" r="3"></circle>
               <line x1="20" y1="4" x2="8.12" y2="15.88"></line>
@@ -1620,8 +2037,9 @@
 
         <div class="nav-actions">
           <a href="#booking-app" class="btn btn-primary" onclick="goToBookingStep(1)">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            Book Appointment
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <span class="btn-text-full">Book Appointment</span>
+            <span class="btn-text-mobile">Book Slot</span>
           </a>
         </div>
       </div>
@@ -1663,15 +2081,15 @@
           <div class="hero-stats-row">
             <div class="hero-stat-item">
               <span class="stat-number">0 Mins</span>
-              <span class="stat-label">Queue Waiting Time</span>
+              <span class="stat-label">Queue Wait</span>
             </div>
             <div class="hero-stat-item">
               <span class="stat-number">8AM-10PM</span>
-              <span class="stat-label">Daily Available Slots</span>
+              <span class="stat-label">Daily Slots</span>
             </div>
             <div class="hero-stat-item">
               <span class="stat-number">100%</span>
-              <span class="stat-label">WhatsApp Status Updates</span>
+              <span class="stat-label">WhatsApp Alerts</span>
             </div>
           </div>
         </div>
@@ -1831,7 +2249,7 @@
                       <p class="treatment-meta">Classic precision haircut & styling finish • 30 mins</p>
                     </div>
                   </div>
-                  <div style="display:flex; align-items:center;">
+                  <div class="treatment-right">
                     <div class="treatment-price-wrap">
                       <span class="treatment-price">₹150</span>
                     </div>
@@ -1852,7 +2270,7 @@
                       <p class="treatment-meta">Full haircut + beard grooming & edge line shaping • 45 mins</p>
                     </div>
                   </div>
-                  <div style="display:flex; align-items:center;">
+                  <div class="treatment-right">
                     <div class="treatment-price-wrap">
                       <span class="treatment-price">₹250</span>
                     </div>
@@ -1873,7 +2291,7 @@
                       <p class="treatment-meta">Traditional hot towel razor shave & soothing balm • 20 mins</p>
                     </div>
                   </div>
-                  <div style="display:flex; align-items:center;">
+                  <div class="treatment-right">
                     <div class="treatment-price-wrap">
                       <span class="treatment-price">₹100</span>
                     </div>
@@ -1904,7 +2322,7 @@
               <!-- Time Slot Grid System (8:00 AM - 10:00 PM) -->
               <div class="time-slots-section" style="margin-top:2rem;">
                 <div class="panel-header" style="margin-bottom:0.5rem;">
-                  <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
                     <h3 class="panel-title" style="font-size:1.35rem;">Available Time Slots</h3>
                     <span id="operating-hours-badge" class="badge badge-gold">8:00 AM – 10:00 PM</span>
                   </div>
@@ -1969,11 +2387,11 @@
                   <p class="form-hint">Used for live WhatsApp queue updates and appointment reminders.</p>
                 </div>
 
-                <div style="display:flex; gap:1rem; margin-top:2.5rem;">
+                <div style="display:flex; gap:1rem; margin-top:2.5rem; flex-wrap:wrap;">
                   <button type="button" class="btn btn-secondary" onclick="goToBookingStep(1)">
                     ← Back
                   </button>
-                  <button type="submit" class="btn btn-primary" style="flex:1;">
+                  <button type="submit" class="btn btn-primary" style="flex:1; min-width:180px;">
                     Proceed to Payment Method →
                   </button>
                 </div>
@@ -1993,8 +2411,8 @@
                   <div class="payment-icon-wrap">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
                   </div>
-                  <div style="flex:1;">
-                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <div style="flex:1; min-width:0;">
+                    <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:0.5rem;">
                       <h4 class="payment-title">Option 1 — Online Payment</h4>
                       <span class="badge badge-success">Instant Confirmation</span>
                     </div>
@@ -2015,7 +2433,7 @@
                   <div class="payment-icon-wrap">
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
                   </div>
-                  <div style="flex:1;">
+                  <div style="flex:1; min-width:0;">
                     <h4 class="payment-title">Option 2 — Pay at Salon</h4>
                     <p class="payment-desc">
                       Prefer to pay after your service? No problem. Choose Pay at Salon and pay in cash after your haircut.
@@ -2027,11 +2445,11 @@
                 </div>
               </div>
 
-              <div style="display:flex; gap:1rem; margin-top:2.5rem;">
+              <div style="display:flex; gap:1rem; margin-top:2.5rem; flex-wrap:wrap;">
                 <button type="button" class="btn btn-secondary" onclick="goToBookingStep(2)">
                   ← Back
                 </button>
-                <button type="button" class="btn btn-primary" style="flex:1;" id="btn-submit-booking" onclick="submitFinalBooking()">
+                <button type="button" class="btn btn-primary" style="flex:1; min-width:180px;" id="btn-submit-booking" onclick="submitFinalBooking()">
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
                   Confirm Appointment Booking
                 </button>
